@@ -22,7 +22,11 @@ public class TestInput {
             numbers = DataInput.randomInput(sc);
         }
 
-        System.out.println("Numbers are:");
+
+        BubbleSort.sort(numbers);
+        System.out.println("Sorted Numbers:");
+
+
         for(int num : numbers) {
             System.out.print(num + " ");
         }
