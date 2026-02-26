@@ -1,5 +1,7 @@
 package Module3;
 
+import java.util.Scanner;
+
 public class BinarySearchTree {
 
     class node{
@@ -14,6 +16,8 @@ public class BinarySearchTree {
 
     node root;
     public int index = 0;
+
+
 
 
 
