@@ -23,9 +23,14 @@ public class TestInput {
         }
 
 
-        QuickSort.sort(numbers, 0, numbers.length - 1);
+        long bubbleTime = PerformanceTimer.measureBubble(numbers);
+        long mergeTime  = PerformanceTimer.measureMerge(numbers);
+        long quickTime  = PerformanceTimer.measureQuick(numbers);
 
-        System.out.println("Sorted Numbers:");
+        System.out.println("\nExecution Times:");
+        System.out.println("Bubble Sort : " + bubbleTime + " ns");
+        System.out.println("Merge Sort  : " + mergeTime  + " ns");
+        System.out.println("Quick Sort  : " + quickTime  + " ns");
 
 
         for(int num : numbers) {
