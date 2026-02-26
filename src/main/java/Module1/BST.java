@@ -44,7 +44,7 @@ public class BST {
         }
 
         public void delete( String name){
-            root= deleterec(root, name);
+            root= deleteRec(root, name);
         }
         private BSTNode deleteRec(BSTNode node, String name){
             if (node==null) return null ;
@@ -65,7 +65,10 @@ public class BST {
             }
             return node;
         }
-
+            private BSTNode findMin(BSTNode node) {
+            while (node.left != null) node = node.left;
+            return node;
+    }
         public void displayInOrder(){
             System.out.print("location in BST(aplphabetical : )");
             inOrderRec(root);
