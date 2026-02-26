@@ -23,7 +23,7 @@ public class TestInput {
         }
 
 
-        MergeSort.sort(numbers, 0, numbers.length - 1);
+        QuickSort.sort(numbers, 0, numbers.length - 1);
 
         System.out.println("Sorted Numbers:");
 
