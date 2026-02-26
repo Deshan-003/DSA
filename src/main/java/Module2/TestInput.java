@@ -23,7 +23,8 @@ public class TestInput {
         }
 
 
-        BubbleSort.sort(numbers);
+        MergeSort.sort(numbers, 0, numbers.length - 1);
+
         System.out.println("Sorted Numbers:");
 
 
