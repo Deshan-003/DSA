@@ -12,4 +12,14 @@ public class BinarySearchTree {
         }
     }
 
+    node root;
+    public int index = 0;
+
+
+
+
+
+
+
+
 }
