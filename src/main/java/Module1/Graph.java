@@ -1,124 +1,92 @@
-package Module1;
+package Module1;// Graph.java
+// Member 1 - Graph implementation using Adjacency List
+
 import java.util.*;
-public class Graph {
-    private Map<String, List<String>> adjacencyList;
+
+class Graph {
+
+    private Map<String, List<String>> adjList;
+
     public Graph() {
-        adjacencyList = new LinkedHashMap<>();
+        adjList = new HashMap<>();
     }
 
-
-    public boolean addLocation(String name) {
-        if (adjacencyList.containsKey(name)) {
-            System.out.println("  [!] Location '" + name + "' already exists in the graph.");
-            return false;
-        }
-        adjacencyList.put(name, new ArrayList<>());
-        System.out.println("  [+] Location '" + name + "' added to graph.");
-        return true;
+    // Add location
+    public void addLocation(String location) {
+        adjList.putIfAbsent(location, new ArrayList<>());
+        System.out.println("Location added successfully.");
     }
 
-    public boolean removeLocation(String name) {
-        if (!adjacencyList.containsKey(name)) {
-            System.out.println("  [!] Location '" + name + "' not found in graph.");
-            return false;
-        }
-        for (String loc : adjacencyList.keySet()){
-            adjacencyList.get(loc).remove(name);
+    // Remove location
+    public void removeLocation(String location) {
+        adjList.remove(location);
 
+        for (List<String> neighbors : adjList.values()) {
+            neighbors.remove(location);
         }
 
-        adjacencyList.remove(name);
-        System.out.println("  [-] Location '" + name + "' and all its roads removed.");
-        return true;
+        System.out.println("Location removed successfully.");
     }
-    public boolean addRoad(String from, String to) {
-        if (!adjacencyList.containsKey(from)) {
-            System.out.println("  [!] Location '" + from + "' not found.");
-            return false;
-        }
-        if (!adjacencyList.containsKey(to)) {
-            System.out.println("  [!] Location '" + to + "' not found.");
-            return false;
-        }
-        if (from.equalsIgnoreCase(to)) {
-            System.out.println("  [!] Cannot add a road from a location to itself.");
-            return false;
-        }
-        if (adjacencyList.get(from).contains(to)) {
-            System.out.println("  [!] Road between '" + from + "' and '" + to + "' already exists.");
-            return false;
-        }
 
-        adjacencyList.get(from).add(to);
-        adjacencyList.get(to).add(from);
-        System.out.println("  [+] Road added between '" + from + "' and '" + to + "'.");
-        return true;
-    }
-    public boolean removeRoad(String from, String to) {
-        if (!adjacencyList.containsKey(from) || !adjacencyList.containsKey(to)) {
-            System.out.println("  [!] One or both locations not found.");
-            return false;
-        }
-        boolean removed1 = adjacencyList.get(from).remove(to);
-        boolean removed2 = adjacencyList.get(to).remove(from);
-        if (removed1 && removed2) {
-            System.out.println("  [-] Road between '" + from + "' and '" + to + "' removed.");
-            return true;
-        } else {
-            System.out.println("  [!] Road between '" + from + "' and '" + to + "' does not exist.");
-            return false;
-        }
-    }
-    public void displayConnection(){
-        if (adjacencyList.isEmpty()){
-            System.out.println("  [!] No locations in the graph.");
-            return;
-        }  System.out.println("\n  === Graph Connections (Adjacency List) ===");
-        for (Map.Entry<String, List<String>> entry : adjacencyList.entrySet()) {
-            System.out.print("  " + entry.getKey() + " --> ");
-            if (entry.getValue().isEmpty()) {
-                System.out.print("(no connections)");
-            } else{
-                System.out.print(String.join(" -> ", entry.getValue()));
-
-            }
-            System.out.println();
-        }
-        System.out.println("  ==========================================");
-    }
-    // -------------------------------------------------------
-    public void bfsTraversal(String start) {
-        if (!adjacencyList.containsKey(start)) {
-            System.out.println("  [!] Start location '" + start + "' not found.");
+    // Add road (undirected)
+    public void addRoad(String loc1, String loc2) {
+        if (!adjList.containsKey(loc1) || !adjList.containsKey(loc2)) {
+            System.out.println("One or both locations do not exist.");
             return;
         }
 
-        System.out.println("\n  === BFS Traversal (using Queue) from '" + start + "' ===");
+        adjList.get(loc1).add(loc2);
+        adjList.get(loc2).add(loc1);
 
-        Set<String> visited = new LinkedHashSet<>();
-        Queue<String> queue = new LinkedList<>();  // <-- QUEUE used here
+        System.out.println("Road added successfully.");
+    }
 
-        queue.add(start);
+    // Remove road
+    public void removeRoad(String loc1, String loc2) {
+        if (adjList.containsKey(loc1))
+            adjList.get(loc1).remove(loc2);
+
+        if (adjList.containsKey(loc2))
+            adjList.get(loc2).remove(loc1);
+
+        System.out.println("Road removed successfully.");
+    }
+
+    // Display connections
+    public void displayGraph() {
+        for (String location : adjList.keySet()) {
+            System.out.print(location + " -> ");
+            System.out.println(adjList.get(location));
+        }
+    }
+
+    // BFS Traversal using Queue
+    public void bfs(String start) {
+        if (!adjList.containsKey(start)) {
+            System.out.println("Location not found.");
+            return;
+        }
+
+        Set<String> visited = new HashSet<>();
+        Queue<String> queue = new LinkedList<>();
+
         visited.add(start);
+        queue.add(start);
+
+        System.out.println("BFS Traversal:");
 
         while (!queue.isEmpty()) {
-            String current = queue.poll();  // dequeue
-            System.out.print("  Visiting: " + current + "\n");
+            String current = queue.poll();
+            System.out.print(current + " ");
 
-            for (String neighbor : adjacencyList.get(current)) {
+            for (String neighbor : adjList.get(current)) {
                 if (!visited.contains(neighbor)) {
                     visited.add(neighbor);
-                    queue.add(neighbor);  // enqueue
+                    queue.add(neighbor);
                 }
             }
         }
 
-        System.out.print("  BFS Order: ");
-        System.out.println(String.join(" -> ", visited));
+        System.out.println();
     }
-
-
-
-
-
 }
