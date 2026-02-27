@@ -1,5 +1,8 @@
 package Module3;
 
+import org.w3c.dom.ls.LSOutput;
+
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class BinarySearchTree {
@@ -65,8 +68,16 @@ public class BinarySearchTree {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        BinarySearchTree tree = new BinarySearchTree()
+        BinarySearchTree tree = new BinarySearchTree();
+
+        System.out.println("Enter Number Of Elements : ");
+        int n = sc.nextInt();
+
+
+
     }
+
+
 
 
 
