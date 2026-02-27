@@ -75,6 +75,15 @@ public class BinarySearchTree {
 
         int[] arr = new int[n];
 
+        for(int i=0; i< n; i++) {
+            System.out.println("Enter value"+(i+1)+":");
+            int value = sc.nextInt();
+            tree.insert(value);
+        }
+
+
+
+
 
 
 
