@@ -92,6 +92,9 @@ public class BinarySearchTree {
             System.out.println(num+"");
         }
 
+        System.out.println();
+        sc.close();
+
 
 
 
