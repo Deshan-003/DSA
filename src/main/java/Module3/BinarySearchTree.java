@@ -81,6 +81,11 @@ public class BinarySearchTree {
             tree.insert(value);
         }
 
+        System.out.println("Inorder travesel:");
+        tree.inorder();
+
+
+
 
 
 
