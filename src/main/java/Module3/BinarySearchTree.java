@@ -49,6 +49,19 @@ public class BinarySearchTree {
         }
     }
 
+    public void storeinArray(int[] arr){
+        index = 0;
+        storeinorder(root,arr);
+    }
+
+    public void storeinorder(node root, int[] arr) {
+        if(root != null) {
+            storeinorder(root.left,arr);
+            arr[index++] = root.data;
+            storeinorder(root.right,arr);
+        }
+    }
+
 
 
 
