@@ -73,6 +73,10 @@ public class BinarySearchTree {
         System.out.println("Enter Number Of Elements : ");
         int n = sc.nextInt();
 
+        int[] arr = new int[n];
+
+
+
 
 
     }
