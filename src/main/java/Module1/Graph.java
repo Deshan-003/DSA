@@ -17,9 +17,9 @@ public class Graph {
         return true;
     }
 
-    public boolean removeLocation(String name){
-        if (!adjacencyList.containsKey(name)){
-            System.out.println(("  [!] Location '" + name + "' not found in graph.");
+    public boolean removeLocation(String name) {
+        if (!adjacencyList.containsKey(name)) {
+            System.out.println("  [!] Location '" + name + "' not found in graph.");
             return false;
         }
         for (String loc : adjacencyList.keySet()){
@@ -86,7 +86,36 @@ public class Graph {
         }
         System.out.println("  ==========================================");
     }
+    // -------------------------------------------------------
+    public void bfsTraversal(String start) {
+        if (!adjacencyList.containsKey(start)) {
+            System.out.println("  [!] Start location '" + start + "' not found.");
+            return;
+        }
 
+        System.out.println("\n  === BFS Traversal (using Queue) from '" + start + "' ===");
+
+        Set<String> visited = new LinkedHashSet<>();
+        Queue<String> queue = new LinkedList<>();  // <-- QUEUE used here
+
+        queue.add(start);
+        visited.add(start);
+
+        while (!queue.isEmpty()) {
+            String current = queue.poll();  // dequeue
+            System.out.print("  Visiting: " + current + "\n");
+
+            for (String neighbor : adjacencyList.get(current)) {
+                if (!visited.contains(neighbor)) {
+                    visited.add(neighbor);
+                    queue.add(neighbor);  // enqueue
+                }
+            }
+        }
+
+        System.out.print("  BFS Order: ");
+        System.out.println(String.join(" -> ", visited));
+    }
 
 
 
