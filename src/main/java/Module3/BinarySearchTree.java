@@ -84,6 +84,15 @@ public class BinarySearchTree {
         System.out.println("Inorder travesel:");
         tree.inorder();
 
+        int [] sortedarray = new int[n];
+        tree.storeinArray(sortedarray);
+
+        System.out.println("Values Soretd Array:");
+        for (int num : sortedarray) {
+            System.out.println(num+"");
+        }
+
+
 
 
 
