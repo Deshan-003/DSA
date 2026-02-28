@@ -82,11 +82,28 @@ private void addLocation(){
 
         graph.addLocation(name);
 
-
-
-
-
 }
+    private void removeLocation() {
+        System.out.println("\n  -- Remove Location --");
+
+        if (graph.isEmpty()) {
+            System.out.println("  [!] No locations to remove.");
+            return;
+        }
+        displayAllLocations();
+        String name = getStringInput("  Enter location name to remove: ");
+
+        if (!graph.locationExists(name)) {
+            System.out.println("  [!] Location '" + name + "' not found.");
+            return;
+        }
+
+        // Remove from both BST and Graph
+        locationTree.delete(name);
+        System.out.println("  [BST] '" + name + "' removed from BST.");
+        graph.removeLocation(name);
+    }
+
 
 
 }
