@@ -103,7 +103,30 @@ private void addLocation(){
         System.out.println("  [BST] '" + name + "' removed from BST.");
         graph.removeLocation(name);
     }
+private void removeRoad(){
+        System.out.println("\n  -- Remove Road --");
+    if (graph.isEmpty()) {
+        System.out.println("  [!] No locations exist.");
+        return;
+    }
+    displayAllLocations();
+    String from = getStringInput("  Enter first location: ");
+    String to = getStringInput("  Enter second location: ");
+    graph.removeRoad(from, to);
+}
+    private void displayConnections() {
+        graph.displayConnections();
+    }
 
+    private void bfsTraversal() {
+        if (graph.isEmpty()) {
+            System.out.println("  [!] Graph is empty.");
+            return;
+        }
+        displayAllLocations();
+        String start = getStringInput("  Enter starting location for BFS: ");
+        graph.bfsTraversal(start);
+    }
 
 
 }
