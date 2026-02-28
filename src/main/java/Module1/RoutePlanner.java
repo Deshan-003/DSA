@@ -58,7 +58,35 @@ public class RoutePlanner {
         }
 
     }
+    private void  printMenu(){
+        System.out.println("  |        Route Planner - Main Menu        |");
+        System.out.println("  | 1. Add Location                         |");
+        System.out.println("  | 2. Remove Location                      |");
+        System.out.println("  | 3. Add Road (between two locations)     |");
+        System.out.println("  | 4. Remove Road                          |");
+        System.out.println("  | 5. Display All Connections              |");
+        System.out.println("  | 6. BFS Traversal (uses Queue)          |");
+        System.out.println("  | 7. DFS Traversal (uses Stack)          |");
+        System.out.println("  | 8. Display BST (all locations sorted)  |");
+        System.out.println("  | 0. Back to Main Menu                    |");
+    }
+private void addLocation(){
+        System.out.println("\n  -- Add Location --");
+        String name = getStringInput("  enter location name");
+        if (name.isEmpty()){
+            System.out.println("  [!] Location name cannot be empty.");
+            return;
+        }
+        locationTree.insert(name);
+        System.out.println("  [BST] '" + name + "' added to BST.");
 
+        graph.addLocation(name);
+
+
+
+
+
+}
 
 
 }
