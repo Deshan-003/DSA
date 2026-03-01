@@ -19,6 +19,8 @@ public class BST {
         public BST() {
             root = null;
         }
+
+    // INSERT a location into the BST
         public void insert(String name) {
             root = insertRec(root, name);
         }
@@ -32,6 +34,9 @@ public class BST {
                 node.right= insertRec(node.right,name);
             return node ;
         }
+
+    // SEARCH - check if a location exists in the BST
+
         public boolean search(String name) {
         return searchRec(root, name);
         }
@@ -42,6 +47,8 @@ public class BST {
             else if (cmp<0)return searchRec(node.left,name);
             else return searchRec(node.right,name);
         }
+
+    // DELETE a location from the BST
 
         public void delete( String name){
             root= deleteRec(root, name);
@@ -59,6 +66,8 @@ public class BST {
                 if (node.left == null) return node.right;
                 if (node.right == null) return node.left;
 
+                // Node has two children - get in-order successor (smallest in right subtree)
+
                 BSTNode successor = findMin(node.right);
                 node.locationName = successor.locationName;
                 node.right = deleteRec(node.right, successor.locationName);
@@ -69,6 +78,8 @@ public class BST {
             while (node.left != null) node = node.left;
             return node;
     }
+
+    // DISPLAY all locations in BST (in-order = alphabetical)
         public void displayInOrder(){
             System.out.print("location in BST(aplphabetical : )");
             inOrderRec(root);
