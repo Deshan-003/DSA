@@ -103,6 +103,21 @@ private void addLocation(){
         System.out.println("  [BST] '" + name + "' removed from BST.");
         graph.removeLocation(name);
     }
+    private void addRoad() {
+        System.out.println("\n  -- Add Road --");
+
+        if (graph.isEmpty()) {
+            System.out.println("  [!] No locations exist yet. Add locations first.");
+            return;
+        }
+
+        displayAllLocations();
+        String from = getStringInput("  Enter first location: ");
+        String to   = getStringInput("  Enter second location: ");
+
+        graph.addRoad(from, to);
+    }
+
 private void removeRoad(){
         System.out.println("\n  -- Remove Road --");
     if (graph.isEmpty()) {
@@ -127,13 +142,13 @@ private void removeRoad(){
         String start = getStringInput("  Enter starting location for BFS: ");
         graph.bfsTraversal(start);
     }
-    dfsTraversal(){
+    private void dfsTraversal(){
         if (graph.isEmpty()){
             System.out.println("Grph is empty. ");
             return;
         }
         displayAllLocations();
-        String start = getStringInput(" enter starting location for DFS")
+        String start = getStringInput(" enter starting location for DFS");
             graph.dfsTraversal(start);
     }
 
@@ -142,6 +157,30 @@ private void removeRoad(){
         System.out.println();
         locationTree.displayInOrder();
     }
+
+    private void displayAllLocations() {
+        System.out.print("  Current Locations: ");
+        System.out.println(graph.getAllLocations());
+    }
+    private void loadSampleData() {
+        System.out.println("\n  [INFO] Loading sample city data...");
+
+        String[] locations = {"CityHall", "Hospital", "School", "Park", "Market", "Airport"};
+        for (String loc : locations) {
+            locationTree.insert(loc);
+            graph.addLocation(loc);
+        }
+
+        graph.addRoad("CityHall", "Hospital");
+        graph.addRoad("CityHall", "Park");
+        graph.addRoad("Hospital", "School");
+        graph.addRoad("School", "Market");
+        graph.addRoad("Park", "Market");
+        graph.addRoad("Market", "Airport");
+
+        System.out.println("  [INFO] Sample data loaded! (6 locations, 6 roads)");
+    }
+
 
 
 }
