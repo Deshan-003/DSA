@@ -127,6 +127,21 @@ private void removeRoad(){
         String start = getStringInput("  Enter starting location for BFS: ");
         graph.bfsTraversal(start);
     }
+    dfsTraversal(){
+        if (graph.isEmpty()){
+            System.out.println("Grph is empty. ");
+            return;
+        }
+        displayAllLocations();
+        String start = getStringInput(" enter starting location for DFS")
+            graph.dfsTraversal(start);
+    }
+
+
+    private void displayBST(){
+        System.out.println();
+        locationTree.displayInOrder();
+    }
 
 
 }
