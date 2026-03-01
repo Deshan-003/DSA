@@ -4,6 +4,7 @@ import Module3.BinarySearchTree;
 import Module3.PerformanceAnalyzer;
 import Module3.SearchingAlgorithms;
 import Module3.SortingAlgorithms;
+import Module2.TestInput;
 
 
 import java.util.Scanner;
@@ -35,7 +36,7 @@ public class Main {
                     break;
 
                 case 2:
-                    System.out.print("TO DO MODULE 2 ");
+                    TestInput.main(new String[]{});
                     break;
 
                 case 3:
