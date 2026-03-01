@@ -6,9 +6,6 @@ import Module3.SearchingAlgorithms;
 import Module3.SortingAlgorithms;
 import Module2.TestInput;
 
-import Module1.BST;
-import Module1.Graph;
-import Module1.RoutePlanner;
 
 
 import java.util.Scanner;
