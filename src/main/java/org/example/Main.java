@@ -57,7 +57,7 @@ public class Main {
         scanner.close();
     }
 
-    private static void runModule3(scanner) {
+    private static void runModule3(Scanner sc) {
         System.out.println("--------MODULE3 - MENU---------");
         System.out.println("1. BinarySearchTree.");
         System.out.println("2. PerformanceAnalyzer.");
