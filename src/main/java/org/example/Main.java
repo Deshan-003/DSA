@@ -104,7 +104,7 @@ public class Main {
                 for (int size : sizes) {
 
 
-                    int[] arr = ArrayCreate(size);
+                    arr = ArrayCreate(size);
 
 
                     int[] arrForSort = copyArray(arr);
