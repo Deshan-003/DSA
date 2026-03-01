@@ -25,6 +25,20 @@ public class PerformanceAnalyzer {
 
         int [] sizes = {100,500,1000};
 
+        System.out.printf("%-15s %-25s %-25s%n", "Input Size", "Linear Search (ns)", "Bubble Sort (ns)");
+        System.out.println("=================================================================");
+
+        for (int size : sizes) {
+            int [] arr = ArrayCreate(size);
+            int[] arrForSort = copyArray(arr);
+
+            int key = arr[size - 1];
+        }
+
+
+
+
+
 
 
 
