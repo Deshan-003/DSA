@@ -181,7 +181,18 @@ private void removeRoad(){
         System.out.println("  [INFO] Sample data loaded! (6 locations, 6 roads)");
     }
 
+private int getIntInput(String prompt){
+        while(true){
+            System.out.print(prompt);
+            try{
+                String line = scanner.nextLine().trim();
+                return Integer.parseInt(line);
 
+            } catch (NumberFormatException e){
+                System.out.println("  please enter a valide number");
+            }
+        }
+}
 
 
 
