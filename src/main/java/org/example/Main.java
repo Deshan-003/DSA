@@ -1,21 +1,20 @@
 package org.example;
-
 import Module3.BinarySearchTree;
 import Module3.PerformanceAnalyzer;
 import Module3.SearchingAlgorithms;
 import Module3.SortingAlgorithms;
 import Module2.TestInput;
-
+import Module1.RoutePlanner;
 
 import java.util.Scanner;
 
 import static Module3.PerformanceAnalyzer.ArrayCreate;
 import static Module3.PerformanceAnalyzer.copyArray;
-
+//Scanner scanner = new Scanner(System.in);
 public class Main {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);  // declare scanner here
         int choice;
 
         do{
@@ -28,11 +27,12 @@ public class Main {
             System.out.println("4. Exit");
             System.out.println("Enter Your Choice: ");
 
-            choice = sc.nextInt();
+            choice = scanner.nextInt();
 
             switch (choice) {
                 case 1:
-                    System.out.print("TO DO MODULE 1 ");
+                    RoutePlanner module1 = new RoutePlanner(scanner);
+                    module1.run();
                     break;
 
                 case 2:
@@ -40,7 +40,7 @@ public class Main {
                     break;
 
                 case 3:
-                    runModule3(sc);
+                    runModule3(scanner);
                     //System.out.print("TO DO Module 3");
                     break;
 
@@ -54,10 +54,10 @@ public class Main {
 
 
         } while (choice != 4);
-        sc.close();
+        scanner.close();
     }
 
-    private static void runModule3(Scanner sc) {
+    private static void runModule3(scanner) {
         System.out.println("--------MODULE3 - MENU---------");
         System.out.println("1. BinarySearchTree.");
         System.out.println("2. PerformanceAnalyzer.");
