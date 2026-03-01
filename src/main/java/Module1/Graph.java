@@ -92,16 +92,16 @@ public class Graph {
             System.out.println("  [!] Graph is empty. No locations added yet.");
             return;
         }
-        System.out.println("\n  ╔══════════════════════════════════════════╗");
-        System.out.println("  ║     City Map - Adjacency List View       ║");
-        System.out.println("  ╠══════════════════════════════════════════╣");
+        System.out.println("\n  ==========================================");
+        System.out.println("        City Map - Adjacency List View        ");
+        System.out.println("  ============================================");
         for (Map.Entry<String, List<String>> entry : adjacencyList.entrySet()) {
             String connections = entry.getValue().isEmpty()
                     ? "(no roads)"
                     : String.join(" --> ", entry.getValue());
             System.out.printf("  ║  %-15s : %s%n", entry.getKey(), connections);
         }
-        System.out.println("  ╚══════════════════════════════════════════╝");
+        System.out.println("  ==============================================");
     }
 
     // -------------------------------------------------------
@@ -136,7 +136,7 @@ public class Graph {
     // -------------------------------------------------------
     public void dfsTraversal(String start) {
         if (!adjacencyList.containsKey(start)) {
-            System.out.println("  [!] Starting location not found.");
+            System.out.println("   Starting location not found.");
             return;
         }
         Set<String> visited = new HashSet<>();
