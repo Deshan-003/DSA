@@ -20,6 +20,27 @@ public class Main {
 
             choice = sc.nextInt();
 
+            switch (choice) {
+                case 1:
+                    System.out.print("TO DO MODULE 1 ");
+                    break;
+
+                case 2:
+                    System.out.print("TO DO MODULE 2 ");
+                    break;
+
+                case 3:
+                    System.out.print("TO DO Module 3");
+                    break;
+
+                case 4:
+                    System.out.print("Exit...");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice! Try again.");
+            }
+
 
         }
 
