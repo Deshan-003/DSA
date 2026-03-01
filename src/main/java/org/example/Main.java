@@ -2,9 +2,14 @@ package org.example;
 
 import Module3.BinarySearchTree;
 import Module3.PerformanceAnalyzer;
+import Module3.SearchingAlgorithms;
+import Module3.SortingAlgorithms;
 
 
 import java.util.Scanner;
+
+import static Module3.PerformanceAnalyzer.ArrayCreate;
+import static Module3.PerformanceAnalyzer.copyArray;
 
 public class Main {
 
@@ -91,7 +96,37 @@ public class Main {
                 break;
 
             case 2:
-                System.out.print("Enter two numbers: ");
+                int[] sizes = {100, 500, 1000};
+
+                System.out.printf("%-15s %-25s %-25s%n", "Input Size", "Linear Search (ns)", "Bubble Sort (ns)");
+                System.out.println("=================================================================");
+
+                for (int size : sizes) {
+
+
+                    int[] arr = ArrayCreate(size);
+
+
+                    int[] arrForSort = copyArray(arr);
+
+                    int key = arr[size - 1];
+
+
+                    long startSearch = System.nanoTime();
+                    SearchingAlgorithms.linearSearch(arr, key);
+                    long endSearch = System.nanoTime();
+                    long searchTime = endSearch - startSearch;
+
+
+                    long startSort = System.nanoTime();
+                    SortingAlgorithms.bubbleSort(arrForSort);
+                    long endSort = System.nanoTime();
+                    long sortTime = endSort - startSort;
+
+                    System.out.printf("%-15d %-25d %-25d%n", size, searchTime, sortTime);
+                }
+
+                System.out.println("==============================================================");
                 break;
         }
 
