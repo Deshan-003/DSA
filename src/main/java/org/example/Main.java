@@ -1,15 +1,14 @@
 package org.example;
-
 import Module3.BinarySearchTree;
 import Module3.PerformanceAnalyzer;
 import Module3.SearchingAlgorithms;
 import Module3.SortingAlgorithms;
-
-
-import java.util.Scanner;
-
 import static Module3.PerformanceAnalyzer.ArrayCreate;
 import static Module3.PerformanceAnalyzer.copyArray;
+import java.util.Scanner;
+import Module1.BST;
+import Module1.Graph;
+import Module1.RoutePlanner;
 
 public class Main {
 
