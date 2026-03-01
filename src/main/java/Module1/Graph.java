@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Graph {
 
-    // Adjacency list: each location maps to its list of connected locations
+    // Each location maps to a list of connected locations
     private final Map<String, List<String>> adjacencyList;
 
 
@@ -12,6 +12,7 @@ public class Graph {
         adjacencyList = new LinkedHashMap<>();
     }
 
+    // ADD LOCATION (vertex)
 
     public void addLocation(String name) {
         if (name == null || name.trim().isEmpty()) {
@@ -26,6 +27,7 @@ public class Graph {
         System.out.println("  [+] Location '" + name + "' added to graph.");
     }
 
+    // REMOVE LOCATION (vertex + all its edges)
 
     public void removeLocation(String name) {
         if (!adjacencyList.containsKey(name)) {
@@ -39,9 +41,9 @@ public class Graph {
         System.out.println("  [-] Location '" + name + "' and all its roads removed.");
     }
 
-    // -------------------------------------------------------
-    // ADD ROAD (undirected edge between two locations)
-    // -------------------------------------------------------
+
+    // ADD ROAD
+
     public void addRoad(String from, String to) {
         if (!adjacencyList.containsKey(from) || !adjacencyList.containsKey(to)) {
             System.out.println("  [!] One or both locations not found.");
@@ -59,7 +61,7 @@ public class Graph {
         adjacencyList.get(to).add(from);
         System.out.println("  [+] Road added: " + from + " <--> " + to);
     }
-
+// REMOVE ROAD (undirected edge)
 
     public void removeRoad(String from, String to) {
         if (!adjacencyList.containsKey(from) || !adjacencyList.containsKey(to)) {
@@ -76,6 +78,7 @@ public class Graph {
         }
     }
 
+    // DISPLAY ALL CONNECTIONS
 
     public void displayConnections() {
         if (adjacencyList.isEmpty()) {
@@ -93,6 +96,8 @@ public class Graph {
         }
         System.out.println("============================================");
     }
+
+    // BFS TRAVERSAL using a Queue (from a starting location)
 
     public void bfsTraversal(String start) {
         if (!adjacencyList.containsKey(start)) {
