@@ -74,7 +74,7 @@ private void addLocation(){
         System.out.println("\n  -- Add Location --");
         String name = getStringInput("  enter location name");
         if (name.isEmpty()){
-            System.out.println("  [!] Location name cannot be empty.");
+            System.out.println("  ! Location name cannot be empty.");
             return;
         }
         locationTree.insert(name);
@@ -87,14 +87,14 @@ private void addLocation(){
         System.out.println("\n  -- Remove Location --");
 
         if (graph.isEmpty()) {
-            System.out.println("  [!] No locations to remove.");
+            System.out.println("  ! No locations to remove.");
             return;
         }
         displayAllLocations();
         String name = getStringInput("  Enter location name to remove: ");
 
         if (!graph.locationExists(name)) {
-            System.out.println("  [!] Location '" + name + "' not found.");
+            System.out.println("  ! Location '" + name + "' not found.");
             return;
         }
 
@@ -107,7 +107,7 @@ private void addLocation(){
         System.out.println("\n  -- Add Road --");
 
         if (graph.isEmpty()) {
-            System.out.println("  [!] No locations exist yet. Add locations first.");
+            System.out.println("  ! No locations exist yet. Add locations first.");
             return;
         }
 
@@ -121,7 +121,7 @@ private void addLocation(){
 private void removeRoad(){
         System.out.println("\n  -- Remove Road --");
     if (graph.isEmpty()) {
-        System.out.println("  [!] No locations exist.");
+        System.out.println("  ! No locations exist.");
         return;
     }
     displayAllLocations();
@@ -135,7 +135,7 @@ private void removeRoad(){
 
     private void bfsTraversal() {
         if (graph.isEmpty()) {
-            System.out.println("  [!] Graph is empty.");
+            System.out.println("  ! Graph is empty.");
             return;
         }
         displayAllLocations();

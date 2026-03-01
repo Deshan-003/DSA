@@ -7,16 +7,12 @@ public class Graph {
     // Adjacency list: each location maps to its list of connected locations
     private final Map<String, List<String>> adjacencyList;
 
-    // -------------------------------------------------------
-    // Constructor
-    // -------------------------------------------------------
+
     public Graph() {
         adjacencyList = new LinkedHashMap<>();
     }
 
-    // -------------------------------------------------------
-    // ADD LOCATION (vertex)
-    // -------------------------------------------------------
+
     public void addLocation(String name) {
         if (name == null || name.trim().isEmpty()) {
             System.out.println("  [!] Location name cannot be empty.");
@@ -30,9 +26,7 @@ public class Graph {
         System.out.println("  [+] Location '" + name + "' added to graph.");
     }
 
-    // -------------------------------------------------------
-    // REMOVE LOCATION (vertex + all connected roads)
-    // -------------------------------------------------------
+
     public void removeLocation(String name) {
         if (!adjacencyList.containsKey(name)) {
             System.out.println("  [!] Location '" + name + "' not found.");
@@ -92,16 +86,16 @@ public class Graph {
             System.out.println("  [!] Graph is empty. No locations added yet.");
             return;
         }
-        System.out.println("\n  ╔══════════════════════════════════════════╗");
-        System.out.println("  ║     City Map - Adjacency List View       ║");
-        System.out.println("  ╠══════════════════════════════════════════╣");
+        System.out.println("\n ===========================================");
+        System.out.println("       City Map - Adjacency List View         ");
+        System.out.println("==============================================");
         for (Map.Entry<String, List<String>> entry : adjacencyList.entrySet()) {
             String connections = entry.getValue().isEmpty()
                     ? "(no roads)"
                     : String.join(" --> ", entry.getValue());
             System.out.printf("  ║  %-15s : %s%n", entry.getKey(), connections);
         }
-        System.out.println("  ╚══════════════════════════════════════════╝");
+        System.out.println("============================================");
     }
 
     // -------------------------------------------------------
@@ -131,9 +125,7 @@ public class Graph {
         System.out.println();
     }
 
-    // -------------------------------------------------------
-    // DFS TRAVERSAL
-    // -------------------------------------------------------
+
     public void dfsTraversal(String start) {
         if (!adjacencyList.containsKey(start)) {
             System.out.println("  [!] Starting location not found.");
@@ -159,9 +151,7 @@ public class Graph {
         System.out.println();
     }
 
-    // -------------------------------------------------------
-    // HELPER METHODS
-    // -------------------------------------------------------
+
     public boolean locationExists(String name) {
         return adjacencyList.containsKey(name);
     }
