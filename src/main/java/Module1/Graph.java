@@ -60,9 +60,7 @@ public class Graph {
         System.out.println("  [+] Road added: " + from + " <--> " + to);
     }
 
-    // -------------------------------------------------------
-    // REMOVE ROAD (undirected edge)
-    // -------------------------------------------------------
+
     public void removeRoad(String from, String to) {
         if (!adjacencyList.containsKey(from) || !adjacencyList.containsKey(to)) {
             System.out.println("  [!] One or both locations not found.");
@@ -78,9 +76,7 @@ public class Graph {
         }
     }
 
-    // -------------------------------------------------------
-    // DISPLAY ALL CONNECTIONS (adjacency list view)
-    // -------------------------------------------------------
+
     public void displayConnections() {
         if (adjacencyList.isEmpty()) {
             System.out.println("  [!] Graph is empty. No locations added yet.");
@@ -98,9 +94,6 @@ public class Graph {
         System.out.println("============================================");
     }
 
-    // -------------------------------------------------------
-    // BFS TRAVERSAL
-    // -------------------------------------------------------
     public void bfsTraversal(String start) {
         if (!adjacencyList.containsKey(start)) {
             System.out.println("  [!] Starting location not found.");
