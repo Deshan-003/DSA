@@ -10,5 +10,9 @@ public class SearchingAlgorithms {
         }
         return -1;
     }
+
+    public static void linearSearch(int[] arr, int key) {
+    }
 }
+
 
