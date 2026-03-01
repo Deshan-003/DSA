@@ -21,6 +21,16 @@ public class PerformanceAnalyzer {
         return copyofArray;
     }
 
+    public static void main(String[] args){
+
+        int [] sizes = {100,500,1000};
+
+
+
+
+
+    }
+
 
 
 
