@@ -183,4 +183,13 @@ private void removeRoad(){
 
 
 
+
+
+
+
+
+    private String getStringInput(String prompt){
+        System.out.println(prompt);
+        return scanner.nextLine().trim();
+    }
 }
