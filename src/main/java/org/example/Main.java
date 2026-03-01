@@ -34,7 +34,8 @@ public class Main {
                     break;
 
                 case 3:
-                    System.out.print("TO DO Module 3");
+                    runModule3(sc);
+                    //System.out.print("TO DO Module 3");
                     break;
 
                 case 4:
@@ -55,7 +56,45 @@ public class Main {
         System.out.println("1. BinarySearchTree.");
         System.out.println("2. PerformanceAnalyzer.");
         System.out.println("Enter your choice : ");
+
         int subchoice = sc.nextInt();
+
+        switch (subchoice){
+            case 1:
+
+
+                BinarySearchTree tree = new BinarySearchTree();
+
+                System.out.println("Enter Number Of Elements : ");
+                int n = sc.nextInt();
+
+                int[] arr = new int[n];
+
+                for(int i=0; i< n; i++) {
+                    System.out.println("Enter value"+(i+1)+":");
+                    int value = sc.nextInt();
+                    tree.insert(value);
+                }
+
+                System.out.println("Inorder travesel:");
+                tree.inorder();
+
+                int [] sortedarray = new int[n];
+                tree.storeinArray(sortedarray);
+
+                System.out.println("Values Soretd Array:");
+                for (int num : sortedarray) {
+                    System.out.println(num+"");
+                }
+
+                System.out.println();
+                break;
+
+            case 2:
+                System.out.print("Enter two numbers: ");
+                break;
+        }
+
 
 
     }
