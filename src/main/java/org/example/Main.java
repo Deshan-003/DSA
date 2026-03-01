@@ -1,5 +1,9 @@
 package org.example;
 
+import Module3.BinarySearchTree;
+import Module3.PerformanceAnalyzer;
+
+
 import java.util.Scanner;
 
 public class Main {
@@ -9,9 +13,9 @@ public class Main {
         int choice;
 
         do{
-            System.out.println("-------------------------------------");
-            System.out.println("-------------Menu.....---------------");
-            System.out.println("-------------------------------------");
+            //System.out.println("-------------------------------------");
+            System.out.println("-------------Menu---------------");
+            //System.out.println("-------------------------------------");
             System.out.println("1. Module 1- Smart City Planner");
             System.out.println("2. Module 2- Data Sorter(Sorting Algorithms)");
             System.out.println("3. Module 3- Algorithm Performance Analyzer");
@@ -42,8 +46,18 @@ public class Main {
             }
 
 
-        } while (choice != 5);
+        } while (choice != 4);
         sc.close();
+    }
+
+    private static void runModule3(Scanner sc) {
+        System.out.println("--------MODULE3 - MENU---------");
+        System.out.println("1. BinarySearchTree.");
+        System.out.println("2. PerformanceAnalyzer.");
+        System.out.println("Enter your choice : ");
+        int subchoice = sc.nextInt();
+
+
     }
 
 }
