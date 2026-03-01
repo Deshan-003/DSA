@@ -15,5 +15,15 @@ public class PerformanceAnalyzer {
         return arr;
     }
 
+    public static int[] copyArray(int [] OrginalArray){
+        int [] copyofArray = new int[OrginalArray.length];
+        System.arraycopy(OrginalArray,0,copyofArray,0,OrginalArray.length);
+        return copyofArray;
+    }
+
+
+
+
+
 
 }
